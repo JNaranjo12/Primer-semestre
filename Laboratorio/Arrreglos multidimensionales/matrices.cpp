@@ -1,5 +1,7 @@
 
 #include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 
 const int M= 3, N=3;
@@ -8,6 +10,7 @@ void transpuesta(const int A[M][N], int B[M][N]);
 void suma(int A[M][N], int B[M][N], int C[M][N]);
 void multiplicacion(int A[M][N], int B[M][N], int D[M][N]);
 int traza(int D[M][N]);
+void leerMatriz(int E[M][N]);
 int main(){
     int A[M][N]=    {{1,2,3},
                     {4,5,6},
@@ -15,19 +18,42 @@ int main(){
     int B[M][N];
     int C[M][N];
     int D[M][N];
+    int E[M][N];
+    int F[M][N];
+    cout << "Matriz A " << endl; 
     imprimir(A);
     cout << endl;
+    
+    //Transpuesta de una matriz
     transpuesta(A,B);
+    cout << "Transpuesta de la matriz A\nMatriz B = transpuesta de matriz A" << endl;
     imprimir(B);
     cout << endl;
+    
+    // Suma de matrices 
     suma(A,B,C);
+    cout << "Suma de matrices \nC = A + B" << endl;
     imprimir(C);
     cout << endl;
+
+    //Multiplicacion de matrices
     multiplicacion(A,B,D);
+    cout << "Multiplicacion de matrices \nD = A * B" << endl;
     imprimir (D);
     cout << endl;
 
-    cout << "La traza es: " << traza(D) << endl;
+    //Traza de una matriz = A la suma de los numeros que conforman la diagonal principal
+    cout << "La traza de la matriz D es: " << traza(D) << endl <<endl;
+
+    //Matriz extraida desde un archivo de texto
+    leerMatriz(E);
+    cout << "Matriz E extraida desde un archivo de texto" << endl;
+    imprimir (E);
+    cout << endl;
+    //Suma de matris con la matriz extraida del archivo de texto
+    suma(A, E, F);
+    cout << "Suma de matrices \nF = A + E" << endl;
+    imprimir(F);
     return 0;
 }
 
@@ -79,4 +105,22 @@ int traza(int D[M][N]){
         }
     }
     return resultado;
+}
+
+void leerMatriz(int E[M][N]){
+    int unidades, unidades2;
+    char aux;
+    string aux2;
+    ifstream archivo;
+    archivo.open("matriz.txt");
+    if(archivo.is_open()){
+            for (int i = 0; i < M; i++){
+                for(int j = 0; j < N; j++){
+                    archivo >> unidades;
+                    E[i][j] = unidades;
+                    archivo.get(aux); 
+                }
+            }
+    }
+    archivo.close();
 }
