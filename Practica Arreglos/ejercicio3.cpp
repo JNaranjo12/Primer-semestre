@@ -21,17 +21,6 @@ void ejercicio_3(){
 void ingresar_valores(short int lista[TAM], int &contador){
     short int num, i = 0;
     bool repetido = true;
-    /*cout << "Ingresar valores entre 10 a 100" << endl;
-    cout << "Valor " << contador + 1 << ": ";
-    cin >> num; 
-    if((num >= 10) && (num <= 100)){  
-        lista[contador] = num;
-        contador++;
-        contador = 1;
-    } else {
-        cout << "Valor fuera de los limites" << endl;
-        contador = 0;
-    }*/
     do{
         cout << "Valor " << i + 1 << ": ";
         cin >> num; 
