@@ -1,0 +1,17 @@
+1
+perro
+23
+mamifero
+2
+leon
+23
+mamifero
+3
+Cabra
+11
+mamifero
+4
+grtgr\
+2
+ave
+0
